@@ -3,6 +3,7 @@ import ora from 'ora';
 import { getExplanation } from './CambridgeDictionary';
 import { WordNotFound } from './apis';
 import { printExplanation } from './ultis/print';
+import util from 'util'
 
 yargs
   .demandCommand(1)
@@ -32,5 +33,5 @@ async function main({ _: [word] }) {
 
   spinner.succeed();
 
-  printExplanation(explanation);
+  console.log(util.inspect(explanation, {depth: null}));
 }
